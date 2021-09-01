@@ -21,12 +21,12 @@ my_label = Label(root,image=bg)
 my_label.place(x=0,y=0,relwidth=1,relheight=1)
 
 #add something to the top of our image
-my_text = Label(root,text="Login",font=("helvetica",15),bg='#00eaff')
+my_text = Label(root,text="Login",font=("helvetica",15),bg='#ffb347')
 my_text.pack(pady=20)
 
 
 # create a frame
-my_frame = Frame(root,bg='#ffffff')
+my_frame = Frame(root,bg='#b9f1f0')
 my_frame.pack()
 
 #creating label
