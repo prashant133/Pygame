@@ -1,125 +1,94 @@
-import pygame, sys
-from pygame.locals import *
-import random
-import math
-from pygame import mixer
+import pygame,sys,random
 
-# initialize pygame
-pygame.init()
+def draw_floor():
+    screen.blit(floor_surface, (floor_x_pos, 450))
+    screen.blit(floor_surface, (floor_x_pos+276, 450))
 
-
-# Create the screen
-clock = pygame.time.Clock()
-
-screen = pygame.display.set_mode((280, 511))
-
-# Create background
-background = pygame.image.load('bg.png')
-floor_surface = pygame.image.load('base.png').convert()
-floor_surface = pygame.transform.scale2x(floor_surface)
-floorX = 0
-
-
-# Background sound
-#mixer.music.load('background.wav')
-#mixer.music.play(-1)
-
-# Game Over Text
-#over_font = pygame.font.Font('freesansbold.ttf',68)
-
-# title and icon
-pygame.display.set_caption("FLAPPY BIRD")
-icon = pygame.image.load('player.png')
-pygame.display.set_icon(icon)
-
-
-# Adding player
-playerImg = pygame.image.load('bird.png').convert_alpha()
-playerX = 10
-playerY = 190
-playerX_change = 0
-
-# adding pipes
-pipe_surface = pygame.image.load('pipe.png')
-
-pipe_list = []
-SPAWNPIPE = pygame.USEREVENT
-pygame.time.set_timer(SPAWNPIPE,1200)
-pipe_height = [300,400,500]
-
-# Game Variables
-gravity = 0.25
-bird_movement = 0
-game_active = True
-#score = 0
-#high_score = 0
-
-def player(x,y):
-    #blit --> draw
-    screen.blit(playerImg, (x,y))
-
-def create_pipe():
-    new_pipe = pipe_surface.get_rect(midtop = (440, 255))
-    return new_pipe
+def create_pipe ():
+    random_pipe_pos = random.choice(pipe_height)
+    bottom_pipe = pipe_surface.get_rect(midtop=(700,random_pipe_pos))
+    top_pipe = pipe_surface.get_rect(midbottom=(700,random_pipe_pos-200))
+    return bottom_pipe , top_pipe
 
 def move_pipes(pipes):
-    for pipe in pipes:
-        pipe.centerx-= 3.5
+    for pipe in pipes :
+        pipe.centerx -= 5
     return pipes
 
 def draw_pipes(pipes):
-    for pipe in pipes:
-        screen.blit(pipe_surface, pipe)
+    for pipe in pipes :
+        if pipe.bottom >= 513 :
+            screen.blit(pipe_surface,pipe)
+        else :
+            flip_pipe = pygame.transform.flip(pipe_surface,False,True)
+            screen.blit(flip_pipe,pipe)
+#intilizing the game
+pygame.init()
 
-def draw_floor():
-    screen.blit(floor_surface, (floorX, 420))
-    screen.blit(floor_surface, (floorX +276,420))
+#settig the screen
+screen = pygame.display.set_mode((276,513))
+clock = pygame.time.Clock()
 
+#game variable
+gravity = 0.1
+bird_movement = 0
 
+#adding the background
+bg_surface = pygame.image.load('bg.png').convert()
 
+#adding the floor
+floor_surface = pygame.image.load('base.png').convert()
+floor_x_pos = 0 #postion of the floor
 
-# Game loop
-run = True
-while run:
+#adding the bird
+bird_surface = pygame.image.load('bird.png')
+bird_rect = bird_surface.get_rect(center = (50,225))
 
-    clock.tick(120)
+#adding the pipe
+pipe_surface = pygame.image.load('pipe.png')
+pipe_list = []
+SPAWNPIPE = pygame.USEREVENT
+pygame.time.set_timer(SPAWNPIPE,1200)
+pipe_height = [400,300,200]
 
-    #draw background
-    screen.blit(background, (0, 0))
-
-
-
-
+#game loop
+while True :
     for event in pygame.event.get():
+        #if player want to close the window
         if event.type == pygame.QUIT:
-            run = False
+            pygame.quit()
             sys.exit()
 
+        #adding the bird movement
+        if event.type == pygame.KEYDOWN:
+            if event.key == pygame.K_SPACE:
+                bird_movement = 0
+                bird_movement -= 5
 
+        #
         if event.type == SPAWNPIPE:
-            pipe_list.append(create_pipe())
+            pipe_list.extend(create_pipe())
 
 
 
 
-    # Pipes
+    #image is alwys drawn or moving the image
+    screen.blit(bg_surface,(0,0))
+
+    #bird
+    bird_movement += gravity
+    bird_rect.centery += bird_movement
+    screen.blit(bird_surface,bird_rect)
+
+    #pipes
     pipe_list = move_pipes(pipe_list)
     draw_pipes(pipe_list)
-
-    # Floor
-    floorX -= 1
+    #floor
+    floor_x_pos -= 1
     draw_floor()
-    if floorX <= -576:
-        floorX= 0
-
-
-
-    player(playerX,playerY)
+    if floor_x_pos <= -276:
+        floor_x_pos = 0
 
 
     pygame.display.update()
-pygame.quit()
-
-
-
-
+    clock.tick(120)
