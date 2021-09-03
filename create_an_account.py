@@ -7,7 +7,6 @@ def reg():
 
     root.geometry("800x700")
     root.resizable(width=False, height=False)
-    bg = PhotoImage(file="test.png")
     #Creating a database
     database = sqlite3.connect('registration.db')
     #Creating Cursor
