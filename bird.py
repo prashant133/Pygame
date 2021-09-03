@@ -74,29 +74,29 @@ score = 0
 high_score = 0
 
 #adding the background
-bg_surface = pygame.image.load('bg.png').convert()
+bg_surface = pygame.image.load('Image/bg.png').convert()
 
 #adding the floor
-floor_surface = pygame.image.load('base.png').convert()
+floor_surface = pygame.image.load('Image/base.png').convert()
 floor_x_pos = 0 #postion of the floor
 
 #adding the bird
-bird_surface = pygame.image.load('bird.png').convert_alpha()
+bird_surface = pygame.image.load('Image/bird.png').convert_alpha()
 bird_rect = bird_surface.get_rect(center = (50,225))
 
 #adding the pipe
-pipe_surface = pygame.image.load('pipe.png')
+pipe_surface = pygame.image.load('Image/pipe.png')
 pipe_list = []
 SPAWNPIPE = pygame.USEREVENT
 pygame.time.set_timer(SPAWNPIPE,1200)
 pipe_height = [400,300,200]
 
-game_over_surface = pygame.image.load('message.png').convert_alpha()
+game_over_surface = pygame.image.load('Image/message.png').convert_alpha()
 game_over_rect  = game_over_surface.get_rect(center = (138,256))
 
-flap_sound = pygame.mixer.Sound('sound_sfx_wing.wav')
-death_sound = pygame.mixer.Sound('sound_sfx_hit.wav')
-score_sound = pygame.mixer.Sound('sound_sfx_point.wav')
+flap_sound = pygame.mixer.Sound('sound/sound_sfx_wing.wav')
+death_sound = pygame.mixer.Sound('sound/sound_sfx_hit.wav')
+score_sound = pygame.mixer.Sound('sound/sound_sfx_point.wav')
 score_sound_countdown = 100
 #game loop
 while True :

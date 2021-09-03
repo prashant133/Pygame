@@ -13,7 +13,7 @@ root.title("Loginpage")
 root.geometry('350x320')
 
 #adding the background
-bg = ImageTk.PhotoImage(Image.open("bgg.jpg"))
+bg = ImageTk.PhotoImage(Image.open("Image/bgg.jpg"))
 
 
 #create a label
