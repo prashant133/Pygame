@@ -44,25 +44,25 @@ def reg():
     confirm_password_window = my_canvas.create_window(250, 435,anchor="nw", window=confirm_password_entry)
     def register():
         if name_entry.get() == "" and username_entry.get() == "" and password_entry.get() == "" and confirm_password_entry.get() == "":
-            tkinter.messagebox.showinfo("INVALID DETAILS", "Please Enter Name,Username,Password Correctly")
+            tkinter.messagebox.showinfo("INVALID DETAILS", "Please fill up all the details")
         elif name_entry.get() == "" and username_entry.get() == "" and password_entry.get() == "":
-            tkinter.messagebox.showinfo("INVALID DETAILS", "Please Enter Name,Username,Password Correctly")
+            tkinter.messagebox.showinfo("INVALID DETAILS", "Please fill up all the details")
         elif name_entry.get() == "" and username_entry.get() == "" and confirm_password_entry.get() == "":
-            tkinter.messagebox.showinfo("INVALID DETAILS", "Please Enter Name,Username,Confirm Password Correctly")
+            tkinter.messagebox.showinfo("INVALID DETAILS", "Please fill up all the details")
         elif name_entry.get() == "" and username_entry.get() == "":
-            tkinter.messagebox.showinfo("INVALID DETAILS", "Please Enter Name,Username Correctly")
+            tkinter.messagebox.showinfo("INVALID DETAILS", "Please fill up all the details")
         elif username_entry.get() == "" and password_entry.get() == "":
-            tkinter.messagebox.showinfo("INVALID DETAILS", "Please Enter Username,Password Correctly")
+            tkinter.messagebox.showinfo("INVALID DETAILS", "Please fill up all the details")
         elif name_entry.get() == "" and password_entry.get() == "":
-            tkinter.messagebox.showinfo("INVALID DETAILS", "Please Enter Name,Password Correctly")
+            tkinter.messagebox.showinfo("INVALID DETAILS", "Please fill up all the details")
         elif password_entry.get() == "" and confirm_password_entry.get() == "":
-            tkinter.messagebox.showinfo("INVALID DETAILS", "Please Enter Your Password Correctly")
+            tkinter.messagebox.showinfo("INVALID DETAILS", "Please fill up all the details")
         elif password_entry.get() != confirm_password_entry.get():
-            tkinter.messagebox.showinfo("INVALID PASSWORD", "Please Enter Your Password Correctly!")
+            tkinter.messagebox.showinfo("INVALID PASSWORD", "Please fill up all the details")
         elif name_entry.get() == "":
-            tkinter.messagebox.showinfo("NAME EMPTY", "Please Enter Your Name Correctly!")
+            tkinter.messagebox.showinfo("NAME EMPTY", "Please fill up all the details")
         elif username_entry.get() == "":
-            tkinter.messagebox.showinfo("USERNAME EMPTY", "Please Enter Your Username Correctly!")
+            tkinter.messagebox.showinfo("USERNAME EMPTY", "Please fill up all the details")
         else:
             # Creating a database
             database = sqlite3.connect('registration.db')
