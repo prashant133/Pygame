@@ -4,6 +4,9 @@ from PIL import ImageTk ,Image
 import sqlite3
 from tkinter import messagebox
 from create_an_account import reg
+from bird import play
+import os.path
+
 
 def login ():
     if user.get() == "" and password.get() == "":
@@ -15,16 +18,18 @@ def login ():
     else :
         connector = sqlite3.connect("registration.db")
         cur = connector.cursor()
-        query = "Select * from registration.db where user=?and password=?"
-        cur.execute(query,(user.get(),password.get()))
+        query = "SELECT * FROM Information WHERE username=?and password=?"
+        user_name = user.get()
+        password_name = password.get()
+        cur.execute(query,(user_name,password_name))
         rows = cur.fetchall()
+        print(rows)
         #checking wheter it is empyt or not <if empty show error message , if not login
         if len(rows)> 0:
             #messagebox.showinfo(":Account created" ,login has been sudcess')
-            pass
+            play()
         else :
             messagebox.showerror("Error","invalid username and password ")
-
 #creating the window
 root = Tk()
 
@@ -60,7 +65,7 @@ password.grid(row =2 , column =0)
 #creating textbox
 user = Entry(my_frame,width=30,bg='#fafcfb',borderwidth=5, font=" aerial 10 bold")
 user.grid(row=0,column = 2 ,padx=10,pady=10)
-password = Entry(my_frame,width=30,bg="#fafcfb",bd=4,borderwidth=5, font=" aerial 10 bold",show = '*')
+password = Entry(my_frame,width=30,bg="#fafcfb",bd=4,borderwidth=5, font=" aerial 10 bold",show="*")
 password.grid(row=2 ,column=2,padx=10,pady=10)
 
 

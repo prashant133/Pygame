@@ -11,35 +11,16 @@ def reg():
     database = sqlite3.connect('registration.db')
     #Creating Cursor
     cursor = database.cursor()
-    '''
+
     #Creating Table
-    cursor.execute("""Create Table Information (
+    '''cursor.execute("""Create Table Information (
     full_name text,
     username text,
     password text,
     confirm_password text 
     )""")
+    database.commit()
     '''
-
-    def info ():
-        # Creating a database
-        database = sqlite3.connect('registration.db')
-        # Creating Cursor
-        cursor = database.cursor()
-        #Inserting Data Into Table
-        cursor.execute("Insert Into Information Values (:name, :username, :password,:confirm_password)",
-                       {
-                           'name': name_entry.get(),
-                           'username': username_entry.get(),
-                           'password': password_entry.get(),
-                           'confirm_password': confirm_password_entry.get()
-                       })
-        cursor.execute("Select *,oid From Information")
-        data = cursor.fetchall()
-        print(data)
-        # Commiting Changes
-        database.commit()
-
     # Creating Canvas
     my_canvas = Canvas(root, width=800, height=600, highlightthickness=0)
     my_canvas.pack(fill="both", expand=True)
@@ -95,10 +76,9 @@ def reg():
                                'password': password_entry.get(),
                                'confirm_password': confirm_password_entry.get()
                            })
-            cursor.execute("Select *,oid From Information")
+            cursor.execute("SELECT *,oid FROM Information")
             data = cursor.fetchall()
             print(data)
-            tkinter.messagebox.showinfo("REGISTRATION SUCCESSFUL", "Login Now To Enjoy The Game")
             # Commiting Changes
             database.commit()
 
