@@ -12,7 +12,7 @@ def play():
 
     def move_pipes(pipes):
         for pipe in pipes :
-            pipe.centerx -= 4
+            pipe.centerx -= 5
         return pipes
 
     def draw_pipes(pipes):
