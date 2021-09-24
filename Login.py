@@ -10,11 +10,11 @@ import os.path
 
 def login ():
     if user.get() == "" and password.get() == "":
-        messagebox.showinfo("INVALID DETAILS", "Please Enter Username,Password Correctly")
+        messagebox.showinfo("INVALID DETAILS", "Invalid username or password")
     elif user.get() == "" :
-        messagebox.showinfo("INVALID DETAILS", "Please Enter your  Name Correctly")
+        messagebox.showinfo("INVALID DETAILS", "Invalid username or password")
     elif password.get()== "":
-        messagebox.showinfo("INVALID DETAILS","please Enter your password correctly")
+        messagebox.showinfo("INVALID DETAILS","Invalid username or password")
     else :
         connector = sqlite3.connect("registration.db")
         cur = connector.cursor()
