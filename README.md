@@ -1,3 +1,4 @@
 #                       FLAPPY BIRD
-## introduction
-this game is an intresting game to play
+## Introduction:
+This is a simple game which you can play at your free time.
+*point
