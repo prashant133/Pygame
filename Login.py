@@ -1,11 +1,11 @@
 
 from tkinter import *
-from PIL import ImageTk ,Image
+from PIL import ImageTk, Image
 import sqlite3
 from tkinter import messagebox
 from create_an_account import reg
 from bird import play
-import os.path
+
 
 
 def login ():
@@ -26,10 +26,11 @@ def login ():
         print(rows)
         #checking wheter it is empyt or not <if empty show error message , if not login
         if len(rows)> 0:
-            #messagebox.showinfo(":Account created" ,login has been sudcess')
+            messagebox.showinfo("Account created" ,"login has been sucess")
             play()
         else :
             messagebox.showerror("Error","invalid username and password ")
+
 #creating the window
 root = Tk()
 
@@ -69,10 +70,10 @@ password = Entry(my_frame,width=30,bg="#fafcfb",bd=4,borderwidth=5, font=" aeria
 password.grid(row=2 ,column=2,padx=10,pady=10)
 
 
- #creting button to open an account
+#creting button to open an account
 create_button = Button(my_frame,text="create an account",bg='#ffb347',borderwidth = 5,command=reg)
 create_button.grid(row=3,column=2)
-#creating sumbit button
+#creating login button
 submit_button = Button(my_frame,text="login",bd=6,bg="#ffb347",command = login)
 submit_button.grid(row=5 ,column = 2,pady=10 )
 

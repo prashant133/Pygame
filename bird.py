@@ -29,6 +29,7 @@ def play():
                  death_sound.play()
                  return False
         if bird_rect.top <= -100 or bird_rect.bottom >= 450:
+            death_sound.play()
             return False
         return True
 
@@ -154,6 +155,7 @@ def play():
             score_display('game_over')
 
         #floor
+        #movement of the floor
         floor_x_pos -= 1
         draw_floor()
         if floor_x_pos <= -276:

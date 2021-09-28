@@ -4,16 +4,16 @@ import sqlite3
 def reg():
     root = Tk()
     root.title("Registration Forum")
-
     root.geometry("800x700")
     root.resizable(width=False, height=False)
+
     #Creating a database
     database = sqlite3.connect('registration.db')
     #Creating Cursor
     cursor = database.cursor()
-
+    '''
     #Creating Table
-    '''cursor.execute("""Create Table Information (
+    cursor.execute("""Create Table Information (
     full_name text,
     username text,
     password text,
@@ -21,6 +21,7 @@ def reg():
     )""")
     database.commit()
     '''
+
     # Creating Canvas
     my_canvas = Canvas(root, width=800, height=600, highlightthickness=0)
     my_canvas.pack(fill="both", expand=True)
@@ -58,7 +59,7 @@ def reg():
         elif password_entry.get() == "" and confirm_password_entry.get() == "":
             tkinter.messagebox.showinfo("INVALID DETAILS", "Please fill up all the details")
         elif password_entry.get() != confirm_password_entry.get():
-            tkinter.messagebox.showinfo("INVALID PASSWORD", "Please fill up all the details")
+            tkinter.messagebox.showinfo("INVALID PASSWORD", "Password does not match")
         elif name_entry.get() == "":
             tkinter.messagebox.showinfo("NAME EMPTY", "Please fill up all the details")
         elif username_entry.get() == "":
@@ -86,14 +87,7 @@ def reg():
     register_button = Button(root, text="REGISTER", bd=3, bg="black", fg="white", font=("arial", 15, 'bold'), width=15, height=2, command=register)
     register_window = my_canvas.create_window(310, 500, anchor="nw", window=register_button)
 
-    '''
-    # Creating Label
-    my_label = Label(root, image=bg)
-    my_label.place(x=0, y=0,  relwidth=1, relheight=1)
-    # Creating Account
-    my_house = Label(root, text="Create An Account", Font=("arial", 40, "bold")
-    my_house.pack(pady=40)
-    '''
+
     #Commiting Changes
     database.commit()
     mainloop()
