@@ -1,5 +1,5 @@
 #                       FLAPPY BIRD
-https://www.google.com/search?q=flappy+bird+image&sxsrf=AOaemvLBwOeHMiI7f1rqCXLDp7O4ufgYCA:1632839988690&source=lnms&tbm=isch&sa=X&ved=2ahUKEwityYD88qHzAhUNWX0KHTyEAM4Q_AUoAXoECAEQAw&biw=1360&bih=699&dpr=1#imgrc=UcaSSa5lYPEMGM
+![5974824-3x2-940x627](https://user-images.githubusercontent.com/84699301/135110409-c1f8fe37-fcbd-4620-9b54-6834167df390.jpg)
 ## Introduction:
 
 Flappy bird game is a side-scroller game where the player controls a bird, attempting to fly between rows of green pipes without hitting them. The bird used in the game is faby and it moves to right direction. Faby bird flaps upwards each time we press space button. If we don’t press the faby bird will fall into the ground and game will be over.  Faby bird falls because of the presence of gravity in the game. The player earns a single point after crossing each pair of pipes without touching it. It is a difficult and addictive game.
