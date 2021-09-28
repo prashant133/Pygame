@@ -26,7 +26,7 @@ def login ():
         print(rows)
         #checking wheter it is empyt or not <if empty show error message , if not login
         if len(rows)> 0:
-            messagebox.showinfo("Account created" ,"login has been sucess")
+            messagebox.showinfo("Account created" ,"login has been Success")
             play()
         else :
             messagebox.showerror("Error","invalid username and password ")
