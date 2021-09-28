@@ -26,6 +26,10 @@ Flappy bird game is a side-scroller game where the player controls a bird, attem
 
 Video game has huge scopes in today’s market. Anybody can play this game. Flappy bird is a single player bird game which is easier to play and it is enjoyable. Many kids’ even adults can play this game. It is easier to play and fun game. We created this game so that any type or group of people and students can enjoy this game. This can help people time pass and video game also good for mental health.
 
+## Tools
+
+<img width="292" alt="tools" src="https://user-images.githubusercontent.com/84699301/135110634-19f91b01-819a-4746-9996-d7b6be7279d5.png">
+
 ## Team Ninja
 * sagar khadaka [11782933]
 * Prashant Deshar [11781855]
